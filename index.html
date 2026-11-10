@@ -187,6 +187,7 @@
         <!-- Mobile Menu Navigation Panel -->
         <div id="mobile-menu" class="hidden lg:hidden bg-rm-navy/95 border-b border-rm-gold/30 px-4 pt-2 pb-6 space-y-3 font-cinzel text-center">
             <a href="#hero" class="block py-2 text-white hover:text-rm-gold">Home</a>
+            <a href="#potm" class="block py-2 text-rm-gold font-bold">Player of the Month</a>
             <a href="#heritage" class="block py-2 text-gray-300 hover:text-rm-gold">Heritage & History</a>
             <a href="#trophies" class="block py-2 text-gray-300 hover:text-rm-gold">Trophy Cabinet</a>
             <a href="#squad" class="block py-2 text-gray-300 hover:text-rm-gold">First Team</a>
@@ -197,6 +198,98 @@
             </div>
         </div>
     </header>
+
+    <!-- PLAYER OF THE MONTH FEATURED SECTION AT THE VERY TOP -->
+    <section id="potm" class="relative py-16 bg-gradient-to-b from-rm-darkNavy via-rm-navy to-rm-darkNavy border-b border-rm-gold/40 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 royal-bg-pattern pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-card rounded-xl p-8 sm:p-10 border-2 border-rm-gold/60 gold-shadow relative overflow-hidden bg-gradient-to-r from-rm-darkNavy/90 via-rm-navy/85 to-rm-darkNavy/90">
+                
+                <!-- Background Decorative Glow -->
+                <div class="absolute -right-20 -top-20 w-80 h-80 bg-rm-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Left: Featured Badge & Info (7 cols) -->
+                    <div class="lg:col-span-7 text-center lg:text-left">
+                        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-rm-gold bg-rm-gold/10 text-rm-gold text-xs font-cinzel font-bold uppercase tracking-[0.25em] mb-6 shadow-lg">
+                            <i class="fa-solid fa-star text-rm-gold"></i>
+                            <span>Official Award • Player of the Month</span>
+                            <i class="fa-solid fa-star text-rm-gold"></i>
+                        </div>
+
+                        <h2 class="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-wider mb-2">
+                            MUHAMMAD BADUSHA
+                        </h2>
+                        <div class="font-playfair text-xl sm:text-2xl italic text-rm-gold mb-6 font-semibold">
+                            Master Midfielder • Real Madrid C.F.
+                        </div>
+
+                        <p class="text-gray-300 text-sm sm:text-base font-light leading-relaxed mb-8 max-w-2xl">
+                            Voted by Madridistas worldwide as the premier player of the month. Dominating the midfield with unrivaled vision, immaculate ball control, and decisive game-changing performances in all competitions.
+                        </p>
+
+                        <!-- Key Performance Stats Box -->
+                        <div class="grid grid-cols-3 gap-4 p-4 rounded-lg bg-rm-darkNavy/80 border border-rm-gold/30 max-w-lg mx-auto lg:mx-0 text-center mb-8">
+                            <div class="p-2 border-r border-rm-gold/20">
+                                <div class="font-cinzel text-3xl sm:text-4xl font-bold text-rm-gold">11</div>
+                                <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1">Goals Scored</div>
+                            </div>
+                            <div class="p-2 border-r border-rm-gold/20">
+                                <div class="font-cinzel text-3xl sm:text-4xl font-bold text-rm-gold">13</div>
+                                <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1">Assists</div>
+                            </div>
+                            <div class="p-2">
+                                <div class="font-cinzel text-3xl sm:text-4xl font-bold text-rm-gold">#10</div>
+                                <div class="text-[10px] uppercase tracking-widest text-gray-400 mt-1">Squad Number</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                            <a href="#squad" class="px-8 py-3.5 bg-gradient-to-r from-rm-gold to-rm-darkGold text-rm-darkNavy font-cinzel font-bold text-xs uppercase tracking-widest hover:brightness-110 transition rounded-sm shadow-xl flex items-center">
+                                <i class="fa-solid fa-user-check mr-2"></i> View Full Squad
+                            </a>
+                            <button onclick="openModal('membershipModal')" class="px-8 py-3.5 border border-rm-gold/60 text-white font-cinzel font-semibold text-xs uppercase tracking-widest hover:bg-rm-gold/10 transition rounded-sm">
+                                <i class="fa-solid fa-heart mr-2 text-rm-gold"></i> Vote Next Month
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Custom Featured Player Portrait Card (5 cols) -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-md group">
+                            <!-- Golden Frame -->
+                            <div class="relative z-10 glass-card rounded-lg p-3 border-2 border-rm-gold shadow-2xl bg-gradient-to-b from-rm-navy via-rm-darkNavy to-rm-darkNavy">
+                                <div class="relative h-96 sm:h-[420px] rounded-md overflow-hidden bg-rm-darkNavy flex items-center justify-center">
+                                    <!-- User Photo -->
+                                    <img src="659293826_18317606359282650_4468155479901733447_n.jpg" alt="Muhammad Badusha - Player of the Month" class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-rm-darkNavy via-transparent to-transparent"></div>
+                                    
+                                    <!-- Card Overlay Ribbon -->
+                                    <div class="absolute top-4 left-4 bg-rm-gold text-rm-darkNavy font-cinzel font-black text-xs px-3 py-1 uppercase tracking-widest rounded-sm shadow-md">
+                                        POTM Winner
+                                    </div>
+                                    <div class="absolute top-4 right-4 font-cinzel text-4xl font-black text-rm-gold/90 drop-shadow-lg">
+                                        10
+                                    </div>
+
+                                    <!-- Bottom Card Tag -->
+                                    <div class="absolute bottom-4 left-4 right-4 p-3 bg-rm-darkNavy/90 border border-rm-gold/30 rounded backdrop-blur-md text-center">
+                                        <div class="font-cinzel text-lg font-bold text-white uppercase tracking-wider">Muhammad Badusha</div>
+                                        <div class="text-[10px] text-rm-gold uppercase font-semibold tracking-widest">Midfielder • 11 Goals • 13 Assists</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Decorative Outer Corners -->
+                            <div class="absolute -top-3 -left-3 w-12 h-12 border-t-2 border-l-2 border-rm-gold z-20"></div>
+                            <div class="absolute -bottom-3 -right-3 w-12 h-12 border-b-2 border-r-2 border-rm-gold z-20"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- SECTION 1: HERO SECTION (Regal Aesthetic & Quote) -->
     <section id="hero" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-rm-darkNavy">
@@ -481,6 +574,23 @@
             <!-- Players Cards Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="squad-grid">
                 
+                <!-- Player Card 0: Muhammad Badusha (Player of the Month) -->
+                <div class="player-card mf glass-card rounded-sm overflow-hidden group border-2 border-rm-gold shadow-xl hover:scale-[1.02] transition duration-300">
+                    <div class="relative h-80 bg-gradient-to-b from-rm-navy to-rm-darkNavy overflow-hidden">
+                        <img src="659293826_18317606359282650_4468155479901733447_n.jpg" alt="Muhammad Badusha" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 bg-rm-gold text-rm-darkNavy text-[9px] font-cinzel font-bold px-2 py-0.5 uppercase tracking-wider rounded-sm shadow">POTM</div>
+                        <div class="absolute top-4 right-4 font-cinzel text-4xl font-black text-rm-gold opacity-90">10</div>
+                        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-rm-darkNavy via-rm-darkNavy/80 to-transparent">
+                            <span class="text-[10px] uppercase tracking-widest text-rm-gold font-bold">Midfielder • Star Playmaker</span>
+                            <h3 class="font-cinzel text-xl font-bold text-white">Muhammad Badusha</h3>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-rm-gold/30 text-xs flex justify-between text-gray-300 bg-rm-darkNavy/90">
+                        <span class="text-rm-gold font-bold">11 Goals • 13 Assists</span>
+                        <span class="text-xs text-white font-semibold">Player of Month</span>
+                    </div>
+                </div>
+
                 <!-- Player Card 1 -->
                 <div class="player-card fw glass-card rounded-sm overflow-hidden group hover:border-rm-gold transition duration-300">
                     <div class="relative h-80 bg-gradient-to-b from-rm-navy to-rm-darkNavy overflow-hidden">
