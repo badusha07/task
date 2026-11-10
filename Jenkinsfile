@@ -14,7 +14,7 @@ pipeline{
                 ls -la
                 '''
                 
-                stash name:'webpage',includes:'portfolio/**'
+                stash name:'webpage',includes:'task/**'
             }
         }
         
@@ -29,7 +29,7 @@ pipeline{
                 
                 sh'''
                 rm -rf /var/www/html/*
-                cp -r portfolio/* /var/www/html/
+                cp -r task/* /var/www/html/
                 ls -la
                 '''
             }
