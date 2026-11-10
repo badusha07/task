@@ -1,592 +1,76 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MovieTime - Premium Movie Booking</title>
+<div class="movies" id="movies">
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
-}
-
-body {
-    background: #101014;
-    color: #f5f0e8;
-}
-
-/* HEADER */
-header {
-    background: #09090d;
-    color: white;
-    padding: 18px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    border-bottom: 1px solid #3c3020;
-}
-
-.logo {
-    font-size: 29px;
-    font-weight: bold;
-    color: #e9bd65;
-}
-
-.search {
-    padding: 12px;
-    width: 300px;
-    background: #25232a;
-    color: white;
-    border: 1px solid #55452d;
-    border-radius: 8px;
-    outline: none;
-}
-
-.search:focus {
-    border-color: #e9bd65;
-}
-
-.location {
-    color: #f2d89e;
-    background: #242129;
-    padding: 11px;
-    border-radius: 8px;
-}
-
-/* NAVIGATION */
-nav {
-    background: #17161c;
-    padding: 16px 6%;
-    border-bottom: 1px solid #342b20;
-}
-
-nav a {
-    color: #e4d6bd;
-    text-decoration: none;
-    margin-right: 25px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #e9bd65;
-}
-
-/* BANNER */
-.banner {
-    background: linear-gradient(
-        120deg,
-        #09090d,
-        #302315,
-        #17141d
-    );
-    color: white;
-    padding: 75px 7%;
-    text-align: center;
-    border-bottom: 2px solid #a77b35;
-}
-
-.banner h1 {
-    font-size: 40px;
-    color: #f0cb7b;
-    margin-bottom: 15px;
-}
-
-.banner p {
-    color: #d5c6ad;
-    font-size: 17px;
-}
-
-/* MOVIE SECTION */
-.container {
-    padding: 40px 6%;
-}
-
-.section-title {
-    font-size: 27px;
-    margin-bottom: 25px;
-    color: #f0cb7b;
-}
-
-.movies {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(190px, 1fr)
-    );
-    gap: 25px;
-}
-
-.movie {
-    background: #1c1a20;
-    border: 1px solid #39302a;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 18px #00000055;
-    transition: 0.3s;
-}
-
-.movie:hover {
-    transform: translateY(-7px);
-    border-color: #d6aa59;
-    box-shadow: 0 8px 25px #c18d3930;
-}
-
-.movie img {
-    width: 100%;
-    height: 270px;
-    object-fit: cover;
-}
-
-.movie-info {
-    padding: 16px;
-}
-
-.movie-info h3 {
-    color: #f4dfb7;
-    margin-bottom: 9px;
-}
-
-.rating {
-    color: #c6b99f;
-    margin-bottom: 14px;
-}
-
-.movie-info button {
-    background: linear-gradient(
-        90deg,
-        #b98736,
-        #f0ce80
-    );
-    color: #17120a;
-    border: none;
-    padding: 12px;
-    width: 100%;
-    border-radius: 7px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.movie-info button:hover {
-    background: #ffe1a0;
-    transform: scale(1.03);
-}
-
-/* BOOKING SECTION */
-.booking {
-    display: none;
-    background: #1c1a20;
-    border: 1px solid #8b6938;
-    color: white;
-    margin: 30px auto;
-    padding: 25px;
-    max-width: 600px;
-    border-radius: 14px;
-    text-align: center;
-    box-shadow: 0 5px 25px #00000055;
-}
-
-.booking h2 {
-    color: #f0cb7b;
-}
-
-.booking h3 {
-    color: #e4d6bd;
-    margin-top: 10px;
-}
-
-.screen {
-    background: linear-gradient(
-        90deg,
-        #80602e,
-        #f4d58f,
-        #80602e
-    );
-    padding: 12px;
-    margin: 25px auto;
-    width: 80%;
-    border-radius: 50% 50% 5px 5px;
-    color: #17120a;
-    font-weight: bold;
-    box-shadow: 0 0 18px #e9bd6540;
-}
-
-.seats {
-    display: grid;
-    grid-template-columns: repeat(6, 40px);
-    justify-content: center;
-    gap: 12px;
-    margin: 25px;
-}
-
-.seat {
-    background: #393740;
-    color: white;
-    border: 1px solid #615d68;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.seat:hover {
-    border-color: #e9bd65;
-}
-
-.seat.selected {
-    background: #c99b48;
-    color: #17120a;
-    border-color: #f4d58f;
-}
-
-.seat.booked {
-    background: #777;
-    color: white;
-    cursor: not-allowed;
-}
-
-.confirm {
-    background: linear-gradient(
-        90deg,
-        #b98736,
-        #f0ce80
-    );
-    color: #17120a;
-    border: none;
-    padding: 13px 25px;
-    margin: 5px;
-    border-radius: 7px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.confirm:hover {
-    background: #ffe1a0;
-}
-
-/* FOOTER */
-footer {
-    background: #09090d;
-    color: #c6b99f;
-    padding: 28px;
-    text-align: center;
-    margin-top: 40px;
-    border-top: 1px solid #55452d;
-    line-height: 1.8;
-}
-
-/* MOBILE RESPONSIVE */
-@media(max-width: 600px) {
-    header {
-        justify-content: center;
-    }
-
-    .search {
-        width: 100%;
-    }
-
-    .banner h1 {
-        font-size: 28px;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 7px 12px 7px 0;
-    }
-
-    .seats {
-        gap: 8px;
-        margin: 20px 5px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-<header>
-    <div class="logo">MovieTime 🎬</div>
-
-    <input
-        class="search"
-        id="search"
-        type="text"
-        placeholder="Search for movies..."
-        oninput="searchMovies()"
-    >
-
-    <div class="location">
-        📍 Thiruvananthapuram
-    </div>
-</header>
-
-<!-- NAVIGATION -->
-<nav>
-    <a href="#">Movies</a>
-    <a href="#">Events</a>
-    <a href="#">Offers</a>
-    <a href="#">About Us</a>
-</nav>
-
-<!-- BANNER -->
-<section class="banner">
-    <h1>Book Your Movie Tickets</h1>
-    <p>Experience movies like never before!</p>
-</section>
-
-<!-- MOVIES -->
-<div class="container">
-
-    <h2 class="section-title">
-        Recommended Movies
-    </h2>
-
-    <div class="movies" id="movies">
-
-        <!-- AVENGERS -->
-        <div class="movie" data-name="Avengers">
-            <img
-                src="https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg"
-                alt="Avengers Movie Poster"
-            >
-
-            <div class="movie-info">
-                <h3>Avengers</h3>
-                <p class="rating">⭐ 8.5/10 | Action</p>
-
-                <button onclick="openBooking('Avengers')">
-                    Book Tickets
-                </button>
-            </div>
+    <div class="movie" data-name="Dune Part Two">
+        <img src="https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg" alt="Dune Part Two">
+        <div class="movie-info">
+            <h3>Dune: Part Two</h3>
+            <p class="rating">⭐ 8.5/10 | Sci-Fi</p>
+            <button onclick="openBooking('Dune: Part Two')">Book Tickets</button>
         </div>
-
-        <!-- INCEPTION -->
-        <div class="movie" data-name="Inception">
-            <img
-                src="https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
-                alt="Inception Movie Poster"
-            >
-
-            <div class="movie-info">
-                <h3>Inception</h3>
-                <p class="rating">⭐ 8.8/10 | Sci-Fi</p>
-
-                <button onclick="openBooking('Inception')">
-                    Book Tickets
-                </button>
-            </div>
-        </div>
-
-        <!-- INTERSTELLAR -->
-        <div class="movie" data-name="Interstellar">
-            <img
-                src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
-                alt="Interstellar Movie Poster"
-            >
-
-            <div class="movie-info">
-                <h3>Interstellar</h3>
-                <p class="rating">⭐ 8.7/10 | Adventure</p>
-
-                <button onclick="openBooking('Interstellar')">
-                    Book Tickets
-                </button>
-            </div>
-        </div>
-
-        <!-- JOKER -->
-        <div class="movie" data-name="Joker">
-            <img
-                src="https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
-                alt="Joker Movie Poster"
-            >
-
-            <div class="movie-info">
-                <h3>Joker</h3>
-                <p class="rating">⭐ 8.4/10 | Drama</p>
-
-                <button onclick="openBooking('Joker')">
-                    Book Tickets
-                </button>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<!-- BOOKING SECTION -->
-<div class="booking" id="booking">
-
-    <h2>Book Your Tickets</h2>
-
-    <h3 id="movieName"></h3>
-
-    <p style="margin-top:15px">
-        Select Your Seats
-    </p>
-
-    <div class="screen">
-        SCREEN THIS WAY
     </div>
 
-    <div class="seats" id="seats"></div>
+    <div class="movie" data-name="Deadpool Wolverine">
+        <img src="https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" alt="Deadpool and Wolverine">
+        <div class="movie-info">
+            <h3>Deadpool & Wolverine</h3>
+            <p class="rating">⭐ 7.5/10 | Action</p>
+            <button onclick="openBooking('Deadpool & Wolverine')">Book Tickets</button>
+        </div>
+    </div>
 
-    <p>
-        Selected Seats:
-        <span id="count">0</span>
-    </p>
+    <div class="movie" data-name="Oppenheimer">
+        <img src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg" alt="Oppenheimer">
+        <div class="movie-info">
+            <h3>Oppenheimer</h3>
+            <p class="rating">⭐ 8.3/10 | Drama</p>
+            <button onclick="openBooking('Oppenheimer')">Book Tickets</button>
+        </div>
+    </div>
 
-    <p style="margin-top:10px">
-        Total Amount: ₹<span id="total">0</span>
-    </p>
+    <div class="movie" data-name="Avatar Way of Water">
+        <img src="https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" alt="Avatar">
+        <div class="movie-info">
+            <h3>Avatar: The Way of Water</h3>
+            <p class="rating">⭐ 7.5/10 | Adventure</p>
+            <button onclick="openBooking('Avatar: The Way of Water')">Book Tickets</button>
+        </div>
+    </div>
 
-    <br>
+    <div class="movie" data-name="Spider Man Across the Spider Verse">
+        <img src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg" alt="Spider Man">
+        <div class="movie-info">
+            <h3>Spider-Man: Across the Spider-Verse</h3>
+            <p class="rating">⭐ 8.6/10 | Animation</p>
+            <button onclick="openBooking('Spider-Man: Across the Spider-Verse')">Book Tickets</button>
+        </div>
+    </div>
 
-    <button class="confirm" onclick="confirmBooking()">
-        Confirm Booking
-    </button>
+    <div class="movie" data-name="John Wick Chapter 4">
+        <img src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" alt="John Wick">
+        <div class="movie-info">
+            <h3>John Wick: Chapter 4</h3>
+            <p class="rating">⭐ 7.6/10 | Action</p>
+            <button onclick="openBooking('John Wick: Chapter 4')">Book Tickets</button>
+        </div>
+    </div>
 
-    <button class="confirm" onclick="closeBooking()">
-        Cancel
-    </button>
+    <div class="movie" data-name="The Batman">
+        <img src="https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg" alt="The Batman">
+        <div class="movie-info">
+            <h3>The Batman</h3>
+            <p class="rating">⭐ 7.8/10 | Thriller</p>
+            <button onclick="openBooking('The Batman')">Book Tickets</button>
+        </div>
+    </div>
+
+    <div class="movie" data-name="Top Gun Maverick">
+        <img src="https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DX17ljH.jpg" alt="Top Gun Maverick">
+        <div class="movie-info">
+            <h3>Top Gun: Maverick</h3>
+            <p class="rating">⭐ 8.2/10 | Action</p>
+            <button onclick="openBooking('Top Gun: Maverick')">Book Tickets</button>
+        </div>
+    </div>
 
 </div>
-
-<!-- FOOTER -->
-<footer>
-    <p>© 2026 MovieTime | Movie Ticket Booking Website</p>
-    <p>Made with ❤️ for movie lovers</p>
-</footer>
-
-<!-- JAVASCRIPT -->
-<script>
-
-let selectedSeats = [];
-let currentMovie = "";
-
-const price = 150;
-
-// SEARCH MOVIES
-function searchMovies() {
-
-    let value = document.getElementById("search")
-        .value.toLowerCase();
-
-    document.querySelectorAll(".movie").forEach(movie => {
-
-        let name = movie.dataset.name.toLowerCase();
-
-        movie.style.display =
-            name.includes(value) ? "block" : "none";
-
-    });
-}
-
-// OPEN BOOKING
-function openBooking(movie) {
-
-    currentMovie = movie;
-    selectedSeats = [];
-
-    document.getElementById("movieName").innerText = movie;
-
-    document.getElementById("booking").style.display = "block";
-
-    let seats = document.getElementById("seats");
-
-    seats.innerHTML = "";
-
-    for(let i = 1; i <= 30; i++) {
-
-        let button = document.createElement("button");
-
-        button.innerText = i;
-        button.className = "seat";
-
-        button.onclick = function() {
-
-            if(selectedSeats.includes(i)) {
-
-                selectedSeats = selectedSeats.filter(
-                    seat => seat !== i
-                );
-
-                button.classList.remove("selected");
-
-            } else {
-
-                selectedSeats.push(i);
-
-                button.classList.add("selected");
-
-            }
-
-            updateTotal();
-
-        };
-
-        seats.appendChild(button);
-
-    }
-
-    updateTotal();
-
-    document.getElementById("booking").scrollIntoView({
-        behavior: "smooth"
-    });
-
-}
-
-// UPDATE TOTAL
-function updateTotal() {
-
-    document.getElementById("count").innerText =
-        selectedSeats.length;
-
-    document.getElementById("total").innerText =
-        selectedSeats.length * price;
-
-}
-
-// CONFIRM BOOKING
-function confirmBooking() {
-
-    if(selectedSeats.length === 0) {
-
-        alert("Please select at least one seat!");
-
-        return;
-
-    }
-
-    alert(
-        "Booking Successful! 🎉\n" +
-        "Movie: " + currentMovie +
-        "\nSeats: " + selectedSeats.join(", ") +
-        "\nTotal: ₹" + selectedSeats.length * price
-    );
-
-    closeBooking();
-
-}
-
-// CLOSE BOOKING
-function closeBooking() {
-
-    document.getElementById("booking").style.display = "none";
-
-}
-
-</script>
-
-</body>
-</html>
